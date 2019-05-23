@@ -9,8 +9,34 @@ browser = webdriver.Chrome(executable_path='C:\\Program Files\\chromedriver\\chr
 def set_elem_to_value(id, value):
     elem = browser.find_element_by_id(id)
     elem.clear()
+    elem.click()
     elem.send_keys(value)
     elem.send_keys(Keys.ENTER)
+
+def find_and_click(id):
+    browser.find_element_by_id(id).click()
+
+# Expedia?
+expedia = 'https://www.expedia.com/'
+browser.get(expedia)
+
+flights_id = 'tab-flight-tab-hp'
+find_and_click(flights_id)
+
+one_way_id = 'flight-type-one-way-label-hp-flight'
+find_and_click(one_way_id)
+
+src = 'JFK'
+src_id = 'flight-origin-hp-flight'
+set_elem_to_value(src_id, src)
+
+dest = 'LAX'
+dest_id = 'flight-destination-hp-flight'
+set_elem_to_value(dest_id, dest)
+
+depart = '05/25/2019'
+depart_id = 'flight-departing-single-hp-flight'
+set_elem_to_value(depart_id, depart)
 
 # American Airlines
 # american = 'https://www.aa.com/booking/find-flights'
@@ -48,26 +74,26 @@ def set_elem_to_value(id, value):
 # submit_elem.click()
 
 #Southwest
-southwest = 'https://www.southwest.com/air/booking/'
-browser.get(southwest)
+# southwest = 'https://www.southwest.com/air/booking/'
+# browser.get(southwest)
 
-trip_type_value = 'oneway'
-trip_type_name = 'tripType'
-trip_type_elem = browser.find_element_by_name(trip_type_name)
-trip_type_elem.click()
+# trip_type_value = 'oneway'
+# trip_type_name = 'tripType'
+# trip_type_elem = browser.find_element_by_name(trip_type_name)
+# trip_type_elem.click()
 
-src = 'EWR'
-src_id = 'originationAirportCode'
-set_elem_to_value(src_id, src)
-
-
-dest = 'FLL'
-dest_id = 'destinationAirportCode'
-set_elem_to_value(dest_id, dest)
+# src = 'EWR'
+# src_id = 'originationAirportCode'
+# set_elem_to_value(src_id, src)
 
 
-dep = '06/17'
-dep_id = 'departureDate'
-set_elem_to_value(dep_id, dep)
+# dest = 'FLL'
+# dest_id = 'destinationAirportCode'
+# set_elem_to_value(dest_id, dest)
+
+
+# dep = '06/17'
+# dep_id = 'departureDate'
+# set_elem_to_value(dep_id, dep)
 
 
